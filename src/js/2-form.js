@@ -1,6 +1,6 @@
 let formData = {
     email: "",
-    messagee: ""
+    message: ""
 };
 
 const form = document.querySelector(".feedback-form");
@@ -10,9 +10,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const savedData = localStorage.getItem(STORAGE_KEY);
     if (savedData) {
         try {
-            formData = JSON.parse(savedData);
-            form.elements.email.value = formData.email || '';
-            form.elements.message.value = formData.message || '';
+            const parsedData = JSON.parse(savedData);
+             formData = {
+        email: typeof parsedData.email === 'string' ? parsedData.email : '',
+        message: typeof parsedData.message === 'string' ? parsedData.message : ''
+    };
         } catch (error) {
             console.error('Error parsing saved form data:', error);
             
