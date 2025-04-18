@@ -88,3 +88,9 @@ const lightbox = new SimpleLightbox('.gallery a', {
     captionData: 'alt',
     captionDelay: 250,
 });
+
+
+
+
+
+
